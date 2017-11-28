@@ -38,43 +38,13 @@ java -Xmx3550m -Xms3550m -Xmn2g -Xss128k -XX:+UseConcMarkSweepGC -XX:CMSFullGCsB
 三、辅助信息
 JVM提供了大量命令行参数，打印信息，供调试使用。主要有以下一些：
 -XX:+PrintGC
-输出形式：[GC 118250K->113543K(130112K), 0.0094143 secs]
-                [Full GC 121376K->10414K(130112K), 0.0650971 secs]
 -XX:+PrintGCDetails
-输出形式：[GC [DefNew: 8614K->781K(9088K), 0.0123035 secs] 118250K->113543K(130112K), 0.0124633 secs]
-                [GC [DefNew: 8614K->8614K(9088K), 0.0000665 secs][Tenured: 112761K->10414K(121024K), 0.0433488 secs] 121376K->10414K(130112K), 0.0436268 secs]
 -XX:+PrintGCTimeStamps -XX:+PrintGC：PrintGCTimeStamps可与上面两个混合使用
-输出形式：11.851: [GC 98328K->93620K(130112K), 0.0082960 secs]
 -XX:+PrintGCApplicationConcurrentTime:打印每次垃圾回收前，程序未中断的执行时间。可与上面混合使用
 输出形式：Application time: 0.5291524 seconds
 -XX:+PrintGCApplicationStoppedTime：打印垃圾回收期间程序暂停的时间。可与上面混合使用
 输出形式：Total time for which application threads were stopped: 0.0468229 seconds
 -XX:PrintHeapAtGC:打印GC前后的详细堆栈信息
-输出形式：
-34.702: [GC {Heap before gc invocations=7:
- def new generation   total 55296K, used 52568K [0x1ebd0000, 0x227d0000, 0x227d0000)
-eden space 49152K,  99% used [0x1ebd0000, 0x21bce430, 0x21bd0000)
-from space 6144K,  55% used [0x221d0000, 0x22527e10, 0x227d0000)
-  to   space 6144K,   0% used [0x21bd0000, 0x21bd0000, 0x221d0000)
- tenured generation   total 69632K, used 2696K [0x227d0000, 0x26bd0000, 0x26bd0000)
-the space 69632K,   3% used [0x227d0000, 0x22a720f8, 0x22a72200, 0x26bd0000)
- compacting perm gen  total 8192K, used 2898K [0x26bd0000, 0x273d0000, 0x2abd0000)
-   the space 8192K,  35% used [0x26bd0000, 0x26ea4ba8, 0x26ea4c00, 0x273d0000)
-    ro space 8192K,  66% used [0x2abd0000, 0x2b12bcc0, 0x2b12be00, 0x2b3d0000)
-    rw space 12288K,  46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
-34.735: [DefNew: 52568K->3433K(55296K), 0.0072126 secs] 55264K->6615K(124928K)Heap after gc invocations=8:
- def new generation   total 55296K, used 3433K [0x1ebd0000, 0x227d0000, 0x227d0000)
-eden space 49152K,   0% used [0x1ebd0000, 0x1ebd0000, 0x21bd0000)
-  from space 6144K,  55% used [0x21bd0000, 0x21f2a5e8, 0x221d0000)
-  to   space 6144K,   0% used [0x221d0000, 0x221d0000, 0x227d0000)
- tenured generation   total 69632K, used 3182K [0x227d0000, 0x26bd0000, 0x26bd0000)
-the space 69632K,   4% used [0x227d0000, 0x22aeb958, 0x22aeba00, 0x26bd0000)
- compacting perm gen  total 8192K, used 2898K [0x26bd0000, 0x273d0000, 0x2abd0000)
-   the space 8192K,  35% used [0x26bd0000, 0x26ea4ba8, 0x26ea4c00, 0x273d0000)
-    ro space 8192K,  66% used [0x2abd0000, 0x2b12bcc0, 0x2b12be00, 0x2b3d0000)
-    rw space 12288K,  46% used [0x2b3d0000, 0x2b972060, 0x2b972200, 0x2bfd0000)
-}
-, 0.0757599 secs]
 -Xloggc:filename:与上面几个配合使用，把相关日志信息记录到文件以便分析。
 四、常用配置汇总
 1、堆设置
